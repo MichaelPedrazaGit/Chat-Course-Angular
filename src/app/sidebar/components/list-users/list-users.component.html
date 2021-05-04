@@ -1,0 +1,17 @@
+<p>list-users!</p>
+
+
+<div class="contact" *ngFor="let contac of list" (click)="showChats(contac)">
+    <img [src]="contac.photo" [title]="contac.lassMessage" alt="Imagen Contacto">
+    {{ contac.name }}
+    <div *ngIf="checkToday(contac.lastDate)" style="color: red">
+        {{contac.lastDate | date: 'hh:mm a'}}
+    </div>
+    <div *ngIf="checkYestarday(contac.lastDate)" style="color: blue">
+        Ayer
+    </div>
+    <div *ngIf="checkOther(contac.lastDate)" style="color: green">
+        {{contac.lastDate | date: 'dd/MM/YYYY'}}
+    </div>
+    
+</div>
