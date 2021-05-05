@@ -16,7 +16,7 @@ export class SendMessageComponent implements OnInit {
 
 
   cambio(): void{
-    this.user.message.push(this.mensaje);
+    this.user.messages.push(this.mensaje);
     this.mensaje = '';
   }
 

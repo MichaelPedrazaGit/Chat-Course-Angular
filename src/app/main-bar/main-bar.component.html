@@ -1,4 +1,5 @@
+<h1 *ngIf="!user.name" > Seleccione un chat</h1>
 
-<app-header-chat *ngIf="user.name"></app-header-chat>
-<app-area-chat *ngIf="user.name" [user]="user"></app-area-chat>
-<app-send-message *ngIf="user.name" [user]="user"></app-send-message>
+<app-header-chat [ngClass]="{escondido: !user.name}"></app-header-chat>
+<app-area-chat [ngClass]="{escondido: !user.name}" [user]="user"></app-area-chat>
+<app-send-message [ngClass]="{escondido: !user.name}" [user]="user"></app-send-message>

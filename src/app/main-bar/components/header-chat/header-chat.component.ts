@@ -13,10 +13,13 @@ export class HeaderChatComponent implements OnInit {
   constructor( private service: ChatMainBarService) { }
 
   ngOnInit(): void {
-    this.service.showContact.subscribe(val =>{
-      this.name = val.name;
-      this.photo = val.photo;
+    this.service.showContact.subscribe(val => {
+      this.name = val.contact.name;
+      this.photo = (val.generalPhoto + val.contact.name);
     });
   }
+  // ngOnDestroy(): void{
+  //   this.service.showContact.unsubscribe();
+  // }
 
 }
