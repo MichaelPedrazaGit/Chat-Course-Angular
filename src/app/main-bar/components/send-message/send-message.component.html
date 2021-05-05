@@ -1,2 +1,2 @@
-<input type="text" id="message" name="message" required [(ngModel)]="mensaje" (change)="cambio()">
+<input type="text" id="message" name="message" required [(ngModel)]="mensaje" (keyup)="tecla($event)">
 <button (click)="cambio()">boton</button>

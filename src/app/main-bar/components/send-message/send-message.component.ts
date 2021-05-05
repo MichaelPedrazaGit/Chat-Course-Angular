@@ -13,11 +13,17 @@ export class SendMessageComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
   cambio(): void{
-    this.user.messages.push(this.mensaje);
-    this.mensaje = '';
+    if(this.mensaje != ''){
+
+      this.user.messages.push(this.mensaje);
+      this.mensaje = '';
+    }else{
+      alert("NECESITA ESCRIBIR ALGUN MENSAJE PARA PODER ENVIAR")
+    }
+  }
+  tecla(evento: any): void{
+    if(evento.code === 'Enter') this.cambio();
   }
 
 }
