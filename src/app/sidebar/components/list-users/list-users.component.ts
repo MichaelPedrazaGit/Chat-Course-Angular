@@ -52,20 +52,18 @@ import { ChatSideBarServiceService } from '../../services/chat-side-bar-service.
   //   lastDate.getMonth()        <= this.todayDate.getMonth()  &&
   //   lastDate.getFullYear()     <= this.todayDate.getFullYear();
   // }
-  addmessages(): void{
+  addMessages(): void{
     if (this.list.length > 0){
       this.list.forEach((valorA: any) => {
         valorA.messages = [];
-        console.log(valorA);
       });
     }
   }
 
   ngOnInit(): void {
     this.serviceSideBar.getUsers().then(users =>{
-      // console.log(users);
       this.list = users;
-      this.addmessages();
+      this.addMessages();
     });
   }
 

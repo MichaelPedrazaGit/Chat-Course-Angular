@@ -1,5 +1,38 @@
 :host {
-    display: block;
-    overflow-y: auto;
-    height: calc(100% - 75px);
+  width: 99%;
+  margin-left: 3px;
+  display: block;
+  overflow-y: auto;
+  height: calc(100% - 75px);
+
+  .message-right {
+    width: auto;
+    min-width: 200px;
+    max-width: 90%;
+    height: 6%;
+    text-align: right;
+    background: #dcf8c6;
+    padding: 6px 15px 1px 9px;
+    border-radius: 7.5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 60%;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    word-wrap: break-word;
   }
+  .message-left {
+    width: auto;
+    min-width: 200px;
+    max-width: 90%;
+    height: auto;
+    text-align: left;
+    background: #eaeaea;
+    padding: 6px 1px 1px 9px;
+    border-radius: 7.5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 60%;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    word-wrap: break-word;
+  }
+}
