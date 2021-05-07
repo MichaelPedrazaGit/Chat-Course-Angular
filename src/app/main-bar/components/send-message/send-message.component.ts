@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { WebSocketService } from 'src/app/web-socket.service';
 
 @Component({
   selector: 'app-send-message',
@@ -9,21 +10,21 @@ export class SendMessageComponent implements OnInit {
   @Input() user: any;
   mensaje = '';
 
-  constructor() { }
+  constructor(private webSocket: WebSocketService) { }
 
   ngOnInit(): void {
   }
   cambio(): void{
-    if(this.mensaje != ''){
-
-      this.user.messages.push(this.mensaje);
+    if (this.mensaje != ''){
+      this.user.messages.push({mensaje: this.mensaje, sended: 1});
+      this.webSocket.sendMessage(this.mensaje);
       this.mensaje = '';
     }else{
-      alert("NECESITA ESCRIBIR ALGUN MENSAJE PARA PODER ENVIAR")
+      alert('NECESITA ESCRIBIR ALGUN MENSAJE PARA PODER ENVIAR')
     }
   }
   tecla(evento: any): void{
-    if(evento.code === 'Enter') this.cambio();
+    if (evento.code === 'Enter') this.cambio();
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { WebSocketService } from 'src/app/web-socket.service';
 
 @Component({
   selector: 'app-area-chat',
@@ -7,10 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AreaChatComponent implements OnInit {
   @Input() user: any;
-
-  constructor() { }
+  constructor(private webSocket: WebSocketService) { }
 
   ngOnInit(): void {
+    this.webSocket.onNewMessage().subscribe((val: any) => {
+      if (val.data != ''){
+        this.user.messages.push({mensaje: val.data, sended: 0});
+      }
+    });
   }
-
 }

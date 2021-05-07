@@ -1,3 +1,9 @@
-<ul *ngIf="user.messages.length > 0">
-    <li *ngFor="let mensaje of user.messages">{{mensaje}}</li>
-</ul>
+<div *ngFor="let mensaje of user.messages">
+    <section *ngIf="mensaje.sended == 1" class="message-right">
+        <p>{{mensaje.mensaje}}</p>
+    </section>
+
+    <section *ngIf="mensaje.sended == 0" class="message-left">
+        <p>{{mensaje.mensaje}}</p>
+    </section>
+</div>
