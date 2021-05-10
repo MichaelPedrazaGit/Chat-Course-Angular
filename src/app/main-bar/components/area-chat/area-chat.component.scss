@@ -4,7 +4,14 @@
   display: block;
   overflow-y: auto;
   height: calc(100% - 75px);
-
+  .name{
+    font-size: x-small;
+    text-align: left
+  }
+  .hour{
+    font-size: x-small;
+    text-align: right
+  }
   .message-right {
     width: auto;
     min-width: 200px;

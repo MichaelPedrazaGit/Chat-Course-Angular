@@ -1,9 +1,13 @@
 <div *ngFor="let mensaje of user.messages">
     <section *ngIf="mensaje.sended == 1" class="message-right">
-        <p>{{mensaje.mensaje}}</p>
+        <p class="name"> {{mensaje.mensaje.name}}</p>
+        <p>{{mensaje.mensaje.message}}</p>
+        <p class="hour">{{mensaje.mensaje.date | date: 'hh:mm aa'}}</p>
     </section>
 
     <section *ngIf="mensaje.sended == 0" class="message-left">
-        <p>{{mensaje.mensaje}}</p>
+        <p class="name"> {{mensaje.mensaje.name}}</p>
+        <p>{{mensaje.mensaje.message}}</p>
+        <p class="hour">{{mensaje.mensaje.date | date: 'hh:mm aa'}}</p>
     </section>
 </div>

@@ -14,7 +14,7 @@ export class AreaChatComponent implements OnInit {
   ngOnInit(): void {
     this.webSocket.onNewMessage().subscribe((val: any) => {
       if (val.data != ''){
-        this.user.messages.push({mensaje: val.data, sended: 0});
+        this.user.messages.push({mensaje: JSON.parse(val.data), sended: 0});
       }
     });
   }

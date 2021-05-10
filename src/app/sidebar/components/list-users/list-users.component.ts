@@ -52,6 +52,15 @@ import { ChatSideBarServiceService } from '../../services/chat-side-bar-service.
   //   lastDate.getMonth()        <= this.todayDate.getMonth()  &&
   //   lastDate.getFullYear()     <= this.todayDate.getFullYear();
   // }
+  addGroup(): void{
+    if (this.list.length > 0){
+      this.list.forEach((valorA: any) => {
+        valorA.group = 0;
+      });
+    }
+    this.list.unshift({name: 'Group', group: 1});
+  }
+
   addMessages(): void{
     if (this.list.length > 0){
       this.list.forEach((valorA: any) => {
@@ -63,6 +72,7 @@ import { ChatSideBarServiceService } from '../../services/chat-side-bar-service.
   ngOnInit(): void {
     this.serviceSideBar.getUsers().then(users =>{
       this.list = users;
+      this.addGroup();
       this.addMessages();
     });
   }
